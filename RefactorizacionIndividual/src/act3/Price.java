@@ -6,7 +6,6 @@ public abstract class Price {
 
 	abstract double getCharge(int daysRented);
 
-	// 14
 	public int getFrequentRenterPoints(int daysRented) {
 		return 1;
 	}
@@ -34,7 +33,6 @@ class NewReleasePrice extends Price {
 		return daysRented * 3;
 	}
 
-	// 14
 	public int getFrequentRenterPoints(int daysRented) {
 		return (daysRented > 1) ? 2 : 1;
 	}
