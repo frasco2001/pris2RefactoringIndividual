@@ -23,11 +23,8 @@ class Customer {
 		Enumeration<Rental> rentals = _rentals.elements();
 		String result = "Rental Record for " + getName() + "\n";
 		while (rentals.hasMoreElements()) {
-
 			Rental each = (Rental) rentals.nextElement();
-
 			// show figures for this rental
-			// 4
 			result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each.getCharge()) + "\n";
 		}
 		// add footer lines
@@ -42,7 +39,6 @@ class Customer {
 		String result = "<H1>Rentals for <EM>" + getName() + "</EM></H1><P>\n";
 		while (rentals.hasMoreElements()) {
 			Rental each = (Rental) rentals.nextElement();
-
 			// show figures for each rental
 			result += each.getMovie().getTitle() + ": " + String.valueOf(each.getCharge()) + "<BR>\n";
 		}
