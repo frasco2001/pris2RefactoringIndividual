@@ -5,7 +5,7 @@ import java.util.Vector;
 
 class Customer {
 	private String _name;
-	private Vector _rentals = new Vector();
+	private Vector<Rental> _rentals = new Vector<Rental>();
 
 	public Customer(String name) {
 		_name = name;
@@ -20,15 +20,11 @@ class Customer {
 	}
 
 	public String statement() {
-		int frequentRenterPoints = 0;
-		Enumeration rentals = _rentals.elements();
+		Enumeration<Rental> rentals = _rentals.elements();
 		String result = "Rental Record for " + getName() + "\n";
 		while (rentals.hasMoreElements()) {
 
 			Rental each = (Rental) rentals.nextElement();
-
-			// 5
-			frequentRenterPoints += each.getFrequentRenterPoints();
 
 			// show figures for this rental
 			// 4
@@ -36,14 +32,25 @@ class Customer {
 		}
 		// add footer lines
 		result += "Amount owed is " + String.valueOf(getTotalCharge()) + "\n";
-		result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
+		result += "You earned " + String.valueOf(getTotalFrequentRenterPoints()) + " frequent renter points";
 		return result;
 	}
 
-	//6
+	// 7
+	private int getTotalFrequentRenterPoints() {
+		int result = 0;
+		Enumeration<Rental> rentals = _rentals.elements();
+		while (rentals.hasMoreElements()) {
+			Rental each = (Rental) rentals.nextElement();
+			result += each.getFrequentRenterPoints();
+		}
+		return result;
+	}
+
+	// 6
 	private double getTotalCharge() {
 		double result = 0;
-		Enumeration rentals = _rentals.elements();
+		Enumeration<Rental> rentals = _rentals.elements();
 		while (rentals.hasMoreElements()) {
 			Rental each = (Rental) rentals.nextElement();
 			result += each.getCharge();
