@@ -17,15 +17,12 @@ class Rental {
 		return _movie;
 	}
 
-	// 9
 	public double getCharge() {
 		return _movie.getCharge(_daysRented);
 	}
 
+	// 10
 	public int getFrequentRenterPoints() {
-		if ((getMovie().getPriceCode() == Movie.NEW_RELEASE) && getDaysRented() > 1)
-			return 2;
-		else
-			return 1;
+		return _movie.getFrequentRenterPoints(_daysRented);
 	}
 }

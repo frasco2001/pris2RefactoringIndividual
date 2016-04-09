@@ -33,7 +33,6 @@ class Customer {
 		return result;
 	}
 
-	// 8
 	public String htmlStatement() {
 		Enumeration<Rental> rentals = _rentals.elements();
 		String result = "<H1>Rentals for <EM>" + getName() + "</EM></H1><P>\n";
@@ -48,8 +47,7 @@ class Customer {
 				+ "</EM> frequent renter points<P>";
 		return result;
 	}
-
-	// 7
+	
 	private int getTotalFrequentRenterPoints() {
 		int result = 0;
 		Enumeration<Rental> rentals = _rentals.elements();
@@ -60,7 +58,6 @@ class Customer {
 		return result;
 	}
 
-	// 6
 	private double getTotalCharge() {
 		double result = 0;
 		Enumeration<Rental> rentals = _rentals.elements();
